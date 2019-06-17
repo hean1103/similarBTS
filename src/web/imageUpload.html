@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <!-- ################ -->
+        <!-- # 사진 자동 업로드 # -->
+        <!-- # 전송 버튼 없어요 # -->
+        <!-- ################ -->
+
+        <!-- 사진 preview AND Drag & Drop -->
+        <img id="preview" src="" width="500" height="500" alt=""/>
+
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+                <!-- 사진 선택 -->
+                <input type="file" name="upload" id="getfile">
+        </form>
+
+        <!-- 사진 선택 시 선택한 사진 화면에 출력 -->
+        <script type="text/javascript">
+            var file = document.querySelector('#getfile');
+
+            file.onchange = function () {
+            var fileList = file.files ;
+
+            // 사진 읽기
+            var reader = new FileReader();
+            reader.readAsDataURL(fileList [0]);
+
+            // 사진 출력 및 업로드
+            reader.onload = function  () {
+                document.querySelector('#preview').src = reader.result ;
+                send(fileList);
+            };
+
+            // 사진 업로드
+            function send(fileList) {
+                var formData = new FormData();
+                formData.append('upload', fileList[0]);
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', 'upload.php');
+                xhr.send(formData);
+            }
+        };
+        </script>
+
+        <!-- Drag & Drop -->
+        <script>
+            var drag = document.getElementById('preview');
+
+            drag.ondragover = function () { this.className = 'hover'; return false;}
+            drag.ondragend = function () { this.className = ''; return false;}
+            drag.ondrop = function(e) {
+                this.className = '';
+                e.preventDefault();
+                readfiles(e.dataTransfer.files);
+            }
+
+            function readfiles(files) {
+                // 사진 출력
+                var reader = new FileReader();
+                reader.readAsDataURL(files[0]);
+                reader.onload = function () {
+                    document.querySelector('#preview').src = reader.result;
+                }
+
+                // 사진 업로드
+                var formData = new FormData();
+                formData.append('upload',files[0]);
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', 'upload.php');
+                xhr.send(formData);
+            }
+        </script>
+    </body>
+</html>
