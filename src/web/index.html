@@ -5,37 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-body, html { 
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-.bgimg {
-    border: 0;
-    padding: 0; 
+
+body {
     background-image: url('banner.jpg');
-    min-height:100%;
-    background-position: center;
     background-size: cover;
 }
 
-h1.title{font-size : 70px; text-shadow:1px 1px 2px #666666; color:white; padding-top:500px; text-align:center;}
+h1.title{
+    position:static;
+    font-size : 70px;
+    text-shadow:1px 1px 2px #666666;
+    color:white;
+    padding-top:470px;
+    text-align:center;
+}
+
+button{
+    color:black;
+    background:white;
+    font-size:2em;
+    border-radius:0.5em;
+    padding:5px 20px;
+    margin-left:20px;
+}
+
 </style>
 
 <body>
-    <div class="bgimg">
-	   <h1 class="title"> 나와 닮은 BTS찾기</h1>
-	   <center>
-            <button
-             type="button"
-                style="color: black; background:white; font-size:2em; border-radius:0.5em; padding:5px 20px; margin-right:20px;"
-                 onclick="location.href='imageUpload.html'">찾으러가기</button>
-            <button
-                type="button"
-                style="color:black ; background:white; font-size:2em; border-radius:0.5em; padding:5px 20px;"
-                 onclick="location.href='memberInfo.html'">멤버 알아보기</button>
-        </center>
-    </div>
+	<h1 class="title"> 나와 닮은 BTS찾기</h1>
+
+	<center>
+        <button type="button" onclick="location.href='imageUpload.html'">찾으러가기</button>
+        <button type="button" onclick="location.href='memberInfo.html'">멤버 알아보기</button>
+    </center>
 </body>
 
 </html>
