@@ -1,48 +1,116 @@
 <!DOCTYPE HTML>
 
 <html>
-	<head>
-		<title>멤버소개 페이지</title>
-		<meta charset="utf-8"/>
-		<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.3.min.js"></script>	
+<head>
+	<title>멤버소개 페이지</title>
+	<meta charset="utf-8"/>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.3.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="memberInfo.css">
 
-	<style>
-		ul{
-		display:table;
-		
-		margin-left:auto;
-		margin-right:auto;
-			}
-		h1{
-		text-align:center;}
-		li {
-		display:inline;
-		padding:10px;
-		
-		}
-	</style>
-	</head>
-	
-	<body>
-	<div id="member">
-	<h1 > 이미지를 클릭하면 멤버에 대해 알 수가 있어요~</h1>
-	
-	<div class="list">
-		<ul>
-		<li><img src="btsfacetemp/jin.jpg" width="200px" height="250px" id="jin_click"></li>
-		<li><img src="btsfacetemp/suga.jpg" width="200px" height="250px" id="suga_click"></li>
-		<li><img src="btsfacetemp/jhope.jpg" width="200px" height="250px" id="jhope_click"></li>
-		</ul>
-	
-		<ul>
-		<li><img src="btsfacetemp/rm.jpg" width="200px" height="250px" id="rm_click"></li>
-		<li><img src="btsfacetemp/jimin.jpg" width="200px" height="250px" id="jimin_click"></li>
-		<li><img src="btsfacetemp/v.jpg" width="200px" height="250px" id="v_click"></li>
-		<li><img src="btsfacetemp/jk.jpg" width="200px" height="250px" id="jk_click"></li>
-		</ul>
-	</div>
-	</div>
+<style>
 
-	<script type="text/javascript" src="memberText.js"></script>
-	</body>
+h1{
+	text-align:center;
+	color:white;
+}
+h4{
+	text-align:center;
+	color:white;
+}
+body{
+	background: -webkit-gradient(linear, left top, left bottom, from(#EFCCB8), to(#EFA6C1)) fixed;
+	background: linear-gradient(45deg, #C8B2D6, #EFA6C1);
+
+}
+
+</style>
+</head>
+	
+<body>
+	<h1 >WORLDWIDE BTS</h1>
+	<h4> 사진에 커서를 올리면 정보가 나타납니다.</h4>
+
+	<div class="image-wrapper">
+		<div class="image">
+			<figure class="info">
+                <img src ="img/jin.jpg">
+                <figcaption>
+               		<h3>진 (김석진)</h3>
+           			<p>생년월일 : 1992/12/4</p>  
+					<p>월드와이드 꽃미모로 BTS 비쥬얼대표 멤버. 얼굴과는 반대로 아재개그가 특징. 'EAT JIN'이라는 방송을 할 정도로 먹는거에 관심이 많다. 어깨깡패라 불리는 넓은 어깨의 소유자.</p> 
+					</figcaption>
+       		</figure>
+		</div>
+
+		<div class="image">
+			<figure class="info">
+	           	<img src="img/suga.jpg">
+       			<figcaption>
+                	<h3>슈가 (민윤기)</h3>
+					<p>생년월일 : 1993/3/9</p>
+					<p>웃지 않을 때 시크함과 도도 츤데레, 웃을 때 천진난만한 아가아가한 갭이 큰 멤버.작사, 작곡이 뛰어나서 방탄 노래 프로듀싱에 참여하고 있다.</p>
+                </figcaption>
+        	</figure>
+		</div>
+
+	
+		<div class="image">
+			<figure class="info">
+                <img src="img/jhope.jpg"  width="200px" height="270px">
+               	<figcaption>
+             		<h3>jhope (정호석)</h3>
+					<p>생년월일 : 1994/2/18</p>
+					<p>방탄에서 리드댄서로 활약중인 멤버로 늘 웃고 있는게 특징인 멤버.광주에서 춤으로 유명했을 정도로 댄스실력이 뛰어난 방탄의 안무팀장.</p>
+                </figcaption>
+	        </figure>
+	    </div>
+
+		<div class="image">
+			<figure class="info">
+            	<img src="img/rm.jpg"  width="200px" height="270px">
+            	<figcaption>
+                	<h3>RM (김남준)</h3>
+					<p>생년월일 : 1994/9/12</p>
+					<p>방탄소년단의 리더. 리더인만큼 리더십이 뛰어나고 작곡, 작사 실력 또한 굉장한 브레인 멤버.영어실력도 뛰어나서 해외 공식석상에서 RM의 활약이 크다.</p>
+                </figcaption>
+        	</figure>
+        </div>
+
+		<div class="image">
+			<figure class="info">
+				<img src="img/jimin.jpg">
+                <figcaption>
+                	<h3>지민 (박지민)</h3>
+					<p>생년월일 : 1995/10/13</p>
+					<p>무용을 전공해서 춤선이 예쁘고 완전 노력파이다. 자신에게 엄격한 편.침침이, 망개떡, 짐니 등등 귀여운 별명이 많다.</p>
+                </figcaption>
+        	</figure>
+    	</div>
+
+
+		<div class="image">
+			<figure class="info">
+				<img src="img/v.jpg"  width="200px" height="285px">
+                <figcaption>
+                	<h3>V (김태형)</h3>
+					<p>생년월일 : 1995/12/30</p>
+					<p>비글매력과 동시에 만화에서 나온 듯한 외모가 짱이다.섹시한 무대에서와는 달리 엉뚱하고 4차원의 매력 또한 뷔의 장점.</p>
+                </figcaption>
+        	</figure>
+        </div>
+
+
+	<div class="image">
+		<figure class="info">
+            <img src="img/jk.jpg">
+            <figcaption>
+                <h3>정국 (전정국)</h3>
+				<p>생년월일 : 1997/9/1</p>
+				<p>방탄소년단의 센터를 맡고 있는 황금막내.비쥬얼이면 비쥬얼, 춤이면 춤, 노래면 노래. 못하는 게 없는 완벽 자체 멤버.</p>
+            </figcaption>
+        </figure>
+	</div>
+</div>
+
+</body>
 </html>
