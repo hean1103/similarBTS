@@ -2,23 +2,42 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <style>
+.bloi{
+        margin : 10px 20px 0px 300px;
+        position:fixed;
+        display:inline-block;
+        width:500px;
+        height:400px;
+        border-radius:10%;
+}
+
+.button{
+        margin-top:20px;
+        font-size:1em;
+        color:white;
+        background-color:#FA5882;
+        padding:8px;
+}
+
+body{
+        background-image:url("btsfacetemp/down.jpg");
+        background-repeat:no-repeat;
+        background-position:50% -180%;
+}
+        </style>
     </head>
     <body>
-        <!-- ################ -->
-        <!-- # 사진 자동 업로드 # -->
-        <!-- # 전송 버튼 없어요 # -->
-        <!-- ################ -->
+        <div class=bloi>
+            <!-- # 사진 자동 업로드 # -->
+            <!-- # 전송 버튼 없어요 # -->
+            <input type="file" class="button" name="upload" id="getfile">
+            <!-- 사진 preview AND Drag & Drop -->
+            <img id="preview" src="" width="500" height="500" alt=""/>
+        </div>
 
-        <!-- 사진 preview AND Drag & Drop -->
-        <img id="preview" src="" width="500" height="500" alt=""/>
-
-        <div>
-                <!-- 사진 선택 -->
-                <input type="file" name="upload" id="getfile">
-                <button
-                    style="color:black ; background:white; font-size:2em; border-radius:0.5em; padding:5px 20px;"
-                    onclick="location.href='showResult.html'">
-                 결과 보기</button>
+        <div class=bloi style="margin-left:700px;">
+                <a href="result_bts.txt"  onClick="return show_hide_box(this,350,250,'1px dotted')"><button type="button" class="button"> 닮은꼴 확인</button></a>
         </div>
 
         <!-- 사진 선택 시 선택한 사진 화면에 출력 -->
@@ -63,6 +82,70 @@
                 xhr.open('POST', 'upload.php');
                 xhr.send(formData);
             }
+
+            function move_box(an, box) {
+                var cleft = 730;
+                var ctop = 70;
+                var obj = an;
+
+                while (obj.offsetParent) {
+                    cleft += obj.offsetLeft;
+                    ctop += obj.offsetTop;
+                    obj = obj.offsetParent;
+                }
+
+                box.style.left = cleft + 'px';
+                ctop += an.offsetHeight + 8;
+                if (document.body.currentStyle && document.body.currentStyle['marginTop']) {
+                    ctop += parseInt(document.body.currentStyle['marginTop']);
+                }
+                box.style.top = ctop + 'px';
+            }
+
+            function show_hide_box(an, width, height, borderStyle) {
+                var href = an.href;
+                var boxdiv = document.getElementById(href);
+    
+
+                if (boxdiv != null) {
+                if (boxdiv.style.display=='none') {
+                    move_box(an, boxdiv);
+                    boxdiv.style.display='block';
+                } else{
+                    //boxdiv.style.display='none';
+                    return false;
+                }
+
+                boxdiv = document.createElement('div');
+                boxdiv.setAttribute('id', href);
+                boxdiv.style.display = 'block';
+                boxdiv.style.position = 'absolute';
+                boxdiv.style.width = width + 'px';
+                boxdiv.style.height = height + 'px';
+                boxdiv.style.border = borderStyle;
+                boxdiv.style.backgroundColor = '#fff';
+                boxdiv.style.fontSize = '3em';
+
+                var contents = document.createElement('iframe');
+                contents.scrolling = 'no';
+                contents.frameBorder = '0';
+                contents.style.width = width + 'px';
+                contents.style.height = height + 'px';
+                contents.src = href;
+                contents.style.fontSize='20px';
+    
+                contents.onload = function(){
+                    var body = frame.contentWindow.document.querySelector('body');
+                    body.style.fontSize = '2em';
+                };
+
+                boxdiv.appendChild(contents);
+                document.body.appendChild(boxdiv);
+                move_box(an, boxdiv);
+
+                return false;
+            }
+
         </script>
     </body>
 </html>
